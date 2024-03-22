@@ -1,5 +1,6 @@
 "use client";
 
+import Cards from "../../component/card";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 Link;
@@ -86,33 +87,7 @@ const Pages: React.FC = () => {
                   alignItems: "center",
                 }}
               >
-                <span
-                  style={{
-                    fontSize: "1.2rem",
-                    fontFamily: "cursive",
-                    color: "#333",
-                  }}
-                >
-                  {pokemon.name}
-                </span>
-                <a href={`/pokemon/${pokemon.name}`}>
-                  {" "}
-                  {/* Link to specific pokemon route */}
-                  <button
-                    style={{
-                      backgroundColor: "#f7813e",
-                      color: "#fff",
-                      padding: "0.5rem 1rem",
-                      borderRadius: "5px",
-                      border: "none",
-                      cursor: "pointer",
-                      fontSize: "0.8rem",
-                      fontFamily: "cursive",
-                    }}
-                  >
-                    Voir Plus
-                  </button>
-                </a>
+                <Cards name={pokemon.name}/>
               </div>
             ))}
           </ul>
