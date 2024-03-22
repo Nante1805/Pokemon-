@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
+Link;
 
 interface List {
   name: string;
@@ -42,27 +44,83 @@ const Pages: React.FC = () => {
   //   setIsLoading(true);
   // };
   return (
-    <div style={{ overflow: "hidden", backgroundColor: "#f0f0f0" }}>  {/* Light gray background */}
-      <div style={{ padding: "2rem", margin: "0 auto", maxWidth: "800px" }}> {/* Centered content with max-width */}
-        <h1 style={{ textAlign: "center", fontSize: "2.5rem", marginBottom: "1.5rem" }}>
-          <span style={{ color: "#f7813e", fontFamily: "serif" }}>Tous les</span> Pokemons
-        </h1>  {/* Title with gradient color and serif font */}
-  
-        {error && <p style={{ color: "red", fontWeight: "bold" }}>Error: {error}</p>}
-  
+    <div style={{ overflow: "hidden", backgroundColor: "#f0f0f0" }}>
+      {" "}
+      {/* Light gray background */}
+      <div style={{ padding: "2rem", margin: "0 auto", maxWidth: "800px" }}>
+        {" "}
+        {/* Centered content with max-width */}
+        <h1
+          style={{
+            textAlign: "center",
+            fontSize: "2.5rem",
+            marginBottom: "1.5rem",
+          }}
+        >
+          <span style={{ color: "#f7813e", fontFamily: "serif" }}>
+            Tous les
+          </span>{" "}
+          Pokemons
+        </h1>{" "}
+        {/* Title with gradient color and serif font */}
+        {error && (
+          <p style={{ color: "red", fontWeight: "bold" }}>Error: {error}</p>
+        )}
         {pokemonList.length > 0 && (
-          <ul style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "30px" }}>
+          <ul
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+              gap: "30px",
+            }}
+          >
             {pokemonList.map((pokemon) => (
-              <div key={pokemon.name} style={{ backgroundColor: "#fff", borderRadius: "5px", padding: "1rem", textAlign: "center" }}>
-                <span style={{ fontSize: "1.2rem", fontFamily: "cursive", color: "#333" }}>{pokemon.name}</span>
+              <div
+                key={pokemon.name}
+                style={{
+                  backgroundColor: "#fff",
+                  borderRadius: "5px",
+                  padding: "1rem",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "1.2rem",
+                    fontFamily: "cursive",
+                    color: "#333",
+                  }}
+                >
+                  {pokemon.name}
+                </span>
+                <a href={`/pokemon/${pokemon.name}`}>
+                  {" "}
+                  {/* Link to specific pokemon route */}
+                  <button
+                    style={{
+                      backgroundColor: "#f7813e",
+                      color: "#fff",
+                      padding: "0.5rem 1rem",
+                      borderRadius: "5px",
+                      border: "none",
+                      cursor: "pointer",
+                      fontSize: "0.8rem",
+                      fontFamily: "cursive",
+                    }}
+                  >
+                    Voir Plus
+                  </button>
+                </a>
               </div>
             ))}
           </ul>
         )}
+        Link={}
       </div>
     </div>
   );
-  
 };
 
 export default Pages;
